@@ -10,7 +10,7 @@ class Graph:
             current_node,parent = queue.pop(0)
             if current_node in visited:
                 continue
-            visited.add(current_node)
+            visited.add(current_node)   
 
             for neighbor in self.graph.get(current_node, []):
                 if neighbor not in visited:
@@ -20,13 +20,14 @@ class Graph:
         return False
 
 def read_graph(file_path):
-    graph= {}
-    with open(file_path,'r') as file:
+    graph = {}
+    with open(file_path, 'r') as file:
         for line in file:
-            node1, node2 = line.strip().split()
-            graph.setdefault(node1,[]).append(node2)
-            graph.setdefault(node2,[]).append(node1)
+            node, neighbors = line.strip().split(':')
+            neighbors_list = neighbors.strip('[] \n').split(',')
+            graph[node.strip()] = [n.strip() for n in neighbors_list if n]
     return graph
+
 
 def output(file_path, result):
     with open(file_path,'w') as file:
