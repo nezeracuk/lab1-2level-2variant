@@ -1,5 +1,5 @@
 import unittest
-from sum_of_depths import TreeNode, sum_of_depths
+from src.sum_of_depths import TreeNode, sum_of_depths
 
 class TestSumOfDepths(unittest.TestCase):
     def test_balanced_tree(self):
