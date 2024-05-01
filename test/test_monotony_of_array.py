@@ -1,7 +1,7 @@
 import unittest
-from Second_Lab import monotony
+from src.monotony_of_array import monotony
 
-class Test_Second_Lab(unittest.TestCase):
+class Test_monotony_of_array(unittest.TestCase):
     def test_Monotony(self):
         self.assertEqual(monotony([3,5,6,7,3,2,5,7,5]), False)
         self.assertEqual(monotony([1,2,3,4,5]),True)
