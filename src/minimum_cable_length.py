@@ -68,7 +68,6 @@ class Graph:
                 parent[root_start] = root_end  #Об'єднуємо дві компоненти зв'язності.
 
         #Перевіряємо, чи всі вузли з'єднані. Якщо так, повертаємо загальну вагу, якщо ні - повертаємо -1.
-        return total_weight if mst_edges == len(self.nodes) - 1 else -1
 
         #Перевірка, чи всі вузли з'єднані
         if mst_edges == len(self.nodes) - 1:
