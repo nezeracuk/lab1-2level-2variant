@@ -16,10 +16,9 @@ class TestGraphFunctionality(unittest.TestCase):
         """
         edges = read_input_file(file_path)
         nodes = set()
-        for start, end, weight in edges:
-            nodes.update([start, end])
         graph = Graph(nodes=list(nodes))
         for start, end, weight in edges:
+            graph.nodes.update([start, end])
             graph.add_edge(start, end, weight)
         return graph
 
@@ -48,12 +47,10 @@ class TestGraphFunctionality(unittest.TestCase):
         вершин, які незалежні від початкової умови.
         """
         isolated_edges = read_input_file('../resources/communication_wells4.csv')
-        isolated_nodes = set()
-        for start, end, weight in isolated_edges:
-            isolated_nodes.update([start, end])
-        isolated_nodes.update(['K4', 'K5'])
+        isolated_nodes = set(['K4', 'K5'])
         isolated_graph = Graph(nodes=list(isolated_nodes))
         for start, end, weight in isolated_edges:
+            isolated_graph.nodes.update([start, end])
             isolated_graph.add_edge(start, end, weight)
         result = isolated_graph.kruskal_mst()
         self.assertEqual(result, -1)
