@@ -32,8 +32,8 @@ def output(file_path, result):
     with open(file_path,'w') as file:
         file.write(str(result))
 
-graph = read_graph('../src/resources/input.txt')
+graph = read_graph('src/resources/input.txt')
 main_graph = Graph(graph)
 cycle_detected = any(main_graph.detect_cycle(node) for node in graph)
-output_file_path = '../src/resources/output.txt'
+output_file_path = 'src/resources/output.txt'
 output(output_file_path, cycle_detected)
